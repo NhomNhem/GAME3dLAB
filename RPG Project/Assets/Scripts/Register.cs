@@ -19,6 +19,7 @@ public class Register : MonoBehaviour
     
     public void OnRegisterClick()
     {
+        Debug.Log("Register Clicked");
         // lấy dữ liệu từ input
         var email = emailInput.text;
         var password = passwordInput.text;
@@ -38,7 +39,7 @@ public class Register : MonoBehaviour
 
     IEnumerator Post(string json)
     {
-        var url = "https://localhost:44343/api/register";
+        var url = "http://localhost:5164/api/register";
         var request = new UnityWebRequest(url, "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
         request.uploadHandler = (UploadHandler) new UploadHandlerRaw(bodyRaw);
